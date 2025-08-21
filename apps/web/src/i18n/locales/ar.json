@@ -1,0 +1,96 @@
+{
+  "site": {
+    "heading": "لمشاريعك بسهولة",
+    "description": "نموذج مصمم بشكل جميل يمكنك استخدامه لمشاريعك مجانًا. متاح. قابل للتخصيص. مفتوح المصدر.",
+    "announcement": "تقديم newyolk",
+    "changelog": "سجل التغييرات",
+
+    "buttons": {
+      "get_started": "ابدأ",
+      "toggle_menu": "تبديل القائمة",
+      "toggle_language": "تبديل اللغة",
+      "deploy_vercel": "نشر على Vercel"
+    },
+
+    "words": {
+      "menu": "القائمة",
+      "docs": "التوثيق",
+      "blog": "مدونة"
+    },
+
+    "featured_cards": {
+      "nextjs": {
+        "description": "تم بناؤه باستخدام Next.js مع app router."
+      },
+
+      "shadcn": {
+        "description": "مبني على Shadcn (الموقع/المكونات)."
+      },
+
+      "tailwind": {
+        "description": "مصمم باستخدام Tailwind CSS."
+      },
+
+      "i18n": {
+        "description": "دعم التدويل مع next-intl."
+      },
+
+      "more": {
+        "title": "والمزيد!",
+        "description": "العديد من الميزات الأخرى مثل المستندات ومشاركات المدونة باستخدام MDX، الوضع الداكن والفاتح، لوحة أوامر البحث، خريطة الموقع الدولية والمزيد..."
+      }
+    },
+
+    "footer": {
+      "created_by": "أنشئ بواسطة"
+    },
+
+    "search": {
+      "search": "بحث",
+      "search_documentation": "بحث في التوثيق",
+      "no_results_found": "لم يتم العثور على نتائج",
+      "type_command_or_search": "اكتب أمرًا أو ابحث"
+    },
+
+    "themes": {
+      "theme": "السمة",
+      "dark": "داكن",
+      "light": "فاتح",
+      "system": "افتراضي النظام"
+    }
+  },
+
+  "docs": {
+    "on_this_page": "في هذه الصفحة",
+    "edit_page_on_github": "تعديل هذه الصفحة على GitHub",
+    "start_discussion_on_github": "بدء مناقشة على GitHub",
+    "api_reference": "مرجع API",
+    "docs": "التوثيق",
+    "source": "المصدر",
+
+    "not_found": {
+      "description": "المستند الذي تبحث عنه غير موجود.",
+      "title": "المستند غير موجود"
+    }
+  },
+
+  "blog": {
+    "words": {
+      "posts": "المشاركات",
+      "by": "بواسطة"
+    },
+
+    "cards": {
+      "min_read": "دقيقة قراءة"
+    },
+
+    "buttons": {
+      "next": "التالي",
+      "rss_feed": "تغذية RSS",
+      "previous": "السابق",
+      "read_more": "اقرأ المزيد",
+      "go_to_next_page": "انتقل إلى الصفحة التالية",
+      "go_to_previous_page": "انتقل إلى الصفحة السابقة"
+    }
+  }
+}
