@@ -129,7 +129,7 @@ export default function RootLayout({ children, params }: AppLayoutProps) {
               <div className="relative z-10 flex min-h-screen flex-col">
                 <SiteHeader />
                 <main className="flex-1" dir={params.locale === "ar" ? 'rtl' : 'ltr'}>{children}</main>
-                <SiteFooter />
+                <SiteFooter params={params} />
               </div>
               <div className="fixed left-0 top-0 size-full bg-gradient-to-b from-[#a277ff] via-transparent to-transparent opacity-10" />
             </div>

@@ -16,13 +16,17 @@ const AccordionItem = React.forwardRef<
     ref={ref}
     className={cn('border-b', className)}
     {...props}
-  /> 
-)) 
+  />
+))
 AccordionItem.displayName = 'AccordionItem'
+
+type AccordionTriggerProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & {
+  locale?: string
+}
 
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
+  AccordionTriggerProps
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger
@@ -33,8 +37,17 @@ const AccordionTrigger = React.forwardRef<
       )}
       {...props}
     >
-      {children}
-      <ChevronDownIcon className="text-muted-foreground size-4 shrink-0 transition-transform duration-200" />
+      {props?.locale === "ar" ? (
+        <>
+          <ChevronDownIcon className="text-muted-foreground size-4 shrink-0 transition-transform duration-200" />
+          {children}
+        </>)
+        : (
+        <>
+          {children}
+          <ChevronDownIcon className="text-muted-foreground size-4 shrink-0 transition-transform duration-200" />
+        </>)
+      }
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))
