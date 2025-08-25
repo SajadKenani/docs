@@ -7,8 +7,6 @@ import { FeaturedCard } from '@/components/featured-card'
 import { Announcement } from '@/components/announcement'
 import { buttonVariants } from '@/components/ui/button'
 import { FlipWords } from '@/components/ui/flip-words'
-import { Icons } from '@/components/icons'
-import { siteConfig } from '@/config/site'
 import { Link } from '@/navigation'
 import { cn } from '@/lib/utils'
 

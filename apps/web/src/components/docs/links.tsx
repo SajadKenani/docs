@@ -1,8 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import { ExternalLinkIcon } from 'lucide-react'
-
 import type { Doc } from 'contentlayer/generated'
-
 import { badgeVariants } from '../ui/badge'
 import { Link } from '@/navigation'
 import { cn } from '@/lib/utils'

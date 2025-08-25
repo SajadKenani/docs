@@ -75,7 +75,6 @@ export async function generateMetadata({
           },
         ],
       },
-
     }
   }
 

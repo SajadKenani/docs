@@ -162,7 +162,7 @@ export function DocsSidebarNavItems({
                 'group my-1 h-fit w-full items-center gap-2 rounded-md border border-transparent px-2 hover:underline',
                 item.disabled && 'cursor-not-allowed opacity-60',
                 pathname?.endsWith(item.href)
-                  ? 'text-foreground rounded-none border-l-2 font-medium'
+                  ? 'text-foreground rounded-none font-medium'
                   : 'text-muted-foreground'
               )}
               target={item.external ? '_blank' : ''}

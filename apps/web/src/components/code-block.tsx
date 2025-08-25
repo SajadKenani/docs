@@ -1,5 +1,4 @@
 import type { ComponentProps } from 'react'
-
 import { highlightServerCode } from '@/lib/newyolk/utils/code-theme'
 import { cn } from '@/lib/utils'
 

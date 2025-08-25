@@ -3,6 +3,7 @@ import { defaultLocale } from '@/config/i18n'
 const messages = {
   pt: 'Este conteúdo não está disponível em sua língua ainda',
   en: 'This content is not available in your language yet',
+  ar: "هذا المحتوى لايتوفر بلغتك لحد الان.",
   es: 'Este contenido no está disponible en su idioma todavía',
   fr: "Ce contenu n'est pas encore disponible dans votre langue",
   de: 'Dieser Inhalt ist noch nicht in Ihrer Sprache verfügbar',

@@ -73,7 +73,6 @@ const components = {
   code,
   table,
   blockquote,
-
   CodeBlockWrapper: ({ ...props }) => (
     <CodeBlockWrapper className="rounded-md border" {...props} />
   ),

@@ -2,9 +2,7 @@ import { setRequestLocale } from 'next-intl/server'
 
 import type { LocaleOptions } from '@/lib/newyolk/types/i18n'
 import type { Metadata, Viewport } from 'next'
-
 import '@/styles/globals.css'
-
 import { getObjectValueByLocale } from '@/lib/newyolk/utils/locale'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SiteFooter } from '@/components/site-footer'
@@ -130,12 +128,9 @@ export default function RootLayout({ children, params }: AppLayoutProps) {
             <div>
               <div className="relative z-10 flex min-h-screen flex-col">
                 <SiteHeader />
-
                 <main className="flex-1" dir={params.locale === "ar" ? 'rtl' : 'ltr'}>{children}</main>
-
                 <SiteFooter />
               </div>
-
               <div className="fixed left-0 top-0 size-full bg-gradient-to-b from-[#a277ff] via-transparent to-transparent opacity-10" />
             </div>
           </ThemeProvider>

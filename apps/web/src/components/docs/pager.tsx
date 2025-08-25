@@ -29,31 +29,53 @@ export async function DocsPager({ doc, locale }: DocsPagerProps) {
     return null
   }
 
-  return (
-    <div className="flex flex-row items-center justify-between">
-      {pager?.prev?.href && (
-        <Link
-          href={pager.prev.href}
-          className={buttonVariants({ variant: 'outline' })}
-        >
-          <ChevronLeftIcon className="mr-2 size-4" />
-
-          {getObjectValueByLocale(pager.prev.title, pager.currentLocale)}
-        </Link>
-      )}
-
-      {pager?.next?.href && (
-        <Link
-          href={pager.next.href}
-          className={cn(buttonVariants({ variant: 'outline' }), 'ml-auto')}
-        >
-          {getObjectValueByLocale(pager.next.title, pager.currentLocale)}
-
-          <ChevronRightIcon className="ml-2 size-4" />
-        </Link>
-      )}
-    </div>
-  )
+  if (locale === "en") {
+    return (
+      <div className="flex flex-row items-center justify-between">
+        {pager?.prev?.href && (
+          <Link
+            href={pager.prev.href}
+            className={buttonVariants({ variant: 'outline' })}
+          >
+            <ChevronLeftIcon className="mr-2 size-4" />
+            {getObjectValueByLocale(pager.prev.title, pager.currentLocale)}
+          </Link>
+        )}
+        {pager?.next?.href && (
+          <Link
+            href={pager.next.href}
+            className={cn(buttonVariants({ variant: 'outline' }), 'ml-auto')}
+          >
+            {getObjectValueByLocale(pager.next.title, pager.currentLocale)}
+            <ChevronRightIcon className="ml-2 size-4" />
+          </Link>
+        )}
+      </div>
+    )
+  } else {
+    return (
+      <div className="flex flex-row items-center justify-between">
+        {pager?.next?.href && (
+          <Link
+            href={pager.next.href}
+            className={cn(buttonVariants({ variant: 'outline' }), 'ml-auto')}
+          >
+            <ChevronRightIcon className="ml-2 size-4" />
+            {getObjectValueByLocale(pager.next.title, pager.currentLocale)}
+          </Link>
+        )}
+        {pager?.prev?.href && (
+          <Link
+            href={pager.prev.href}
+            className={buttonVariants({ variant: 'outline' })}
+          >
+            {getObjectValueByLocale(pager.prev.title, pager.currentLocale)}
+            <ChevronLeftIcon className="mr-2 size-4" />
+          </Link>
+        )}
+      </div>
+    )
+  }
 }
 
 export async function getPagerForCurrentDoc({
