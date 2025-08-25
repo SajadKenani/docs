@@ -159,20 +159,20 @@ export function DocsSidebarNavItems({
               href={item.href}
               {...props}
               className={cn(
-                'group my-1 ml-2 flex h-fit w-full items-center gap-2 rounded-md border border-transparent px-2 hover:underline',
+                'group my-1 h-fit w-full items-center gap-2 rounded-md border border-transparent px-2 hover:underline',
                 item.disabled && 'cursor-not-allowed opacity-60',
                 pathname?.endsWith(item.href)
-                  ? 'text-foreground border-l-primary-active rounded-none border-l-2 font-medium'
+                  ? 'text-foreground rounded-none border-l-2 font-medium'
                   : 'text-muted-foreground'
               )}
               target={item.external ? '_blank' : ''}
               rel={item.external ? 'noreferrer' : ''}
             >
-              {getObjectValueByLocale(item.title, locale)}
+              {getObjectValueByLocale(item.title, locale)}{' '}
 
               {item.label && (
                 <span className="rounded-md bg-primary-active px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
-                  {getObjectValueByLocale(item.label, locale)}
+                  {getObjectValueByLocale(item.label, locale)}{' '}
                 </span>
               )}
             </Link>

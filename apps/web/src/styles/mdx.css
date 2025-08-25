@@ -5,6 +5,7 @@ pre {
 
 pre [data-line] {
   padding: 0 0.5rem;
+  text-align: left;
 }
 
 .mdx > .steps:first-child > h3:first-child {

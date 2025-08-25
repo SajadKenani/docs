@@ -26,21 +26,8 @@ export const siteConfig = {
   },
 
   author: {
-    name: 'Dalton Menezes',
-    site: 'https://daltonmenezes.com',
-  },
-
-  links: {
-    twitter: {
-      label: 'Twitter',
-      username: '@daltonmenezes',
-      url: 'https://twitter.com/daltonmenezes',
-    },
-
-    github: {
-      label: 'GitHub',
-      url: 'https://github.com/daltonmenezes/newyolk',
-    },
+    name: 'NewYolk',
+    site: 'https://farm.newyolk.io/',
   },
 } as const
 

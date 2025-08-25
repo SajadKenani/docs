@@ -82,18 +82,6 @@ export async function generateMetadata({
       ],
     },
 
-    twitter: {
-      creator: siteConfig.links.twitter.username,
-      title: siteConfig.name,
-      card: 'summary_large_image',
-      images: [siteConfig.og.image],
-
-      description: getObjectValueByLocale(
-        siteConfig.description,
-        params.locale
-      ),
-    },
-
     icons: {
       icon: '/favicon.ico',
       apple: '/apple-touch-icon.png',
@@ -125,6 +113,7 @@ export default function RootLayout({ children, params }: AppLayoutProps) {
       <body
         className={cn(
           'bg-background min-h-screen font-sans antialiased',
+          params.locale === 'ar' ? "text-right" : "text-left",
           fontSans.variable
         )}
       >
@@ -142,7 +131,7 @@ export default function RootLayout({ children, params }: AppLayoutProps) {
               <div className="relative z-10 flex min-h-screen flex-col">
                 <SiteHeader />
 
-                <main className="flex-1">{children}</main>
+                <main className="flex-1" dir={params.locale === "ar" ? 'rtl' : 'ltr'}>{children}</main>
 
                 <SiteFooter />
               </div>

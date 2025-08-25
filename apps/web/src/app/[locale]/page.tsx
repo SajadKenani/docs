@@ -59,17 +59,6 @@ export default async function IndexPage({
 
           <Link
             target="_blank"
-            rel="noreferrer"
-            href={siteConfig.links.github.url}
-            title={siteConfig.links.github.label}
-            className={cn(buttonVariants({ variant: 'outline' }))}
-          >
-            <Icons.gitHub className="mr-2 size-4" />
-            {siteConfig.links.github.label}
-          </Link>
-
-          <Link
-            target="_blank"
             className={cn(
               buttonVariants({ variant: 'outline' }),
               'flex gap-2 group'

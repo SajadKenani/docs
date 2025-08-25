@@ -57,14 +57,6 @@ export async function generateMetadata({
         },
       ],
     },
-
-    twitter: {
-      card: 'summary_large_image',
-      title: doc.title,
-      description: doc.description,
-      images: [siteConfig.og.image],
-      creator: siteConfig.links.twitter.username,
-    },
   }
 }
 

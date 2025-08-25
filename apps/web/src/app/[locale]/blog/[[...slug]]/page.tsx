@@ -76,13 +76,6 @@ export async function generateMetadata({
         ],
       },
 
-      twitter: {
-        title,
-        description,
-        images: [ogImage],
-        card: 'summary_large_image',
-        creator: siteConfig.links.twitter.username,
-      },
     }
   }
 
@@ -91,10 +84,6 @@ export async function generateMetadata({
 
   const postAuthorName = blogPost.author?.name || siteConfig.author.name
   const postAuthorUrl = blogPost.author?.site || siteConfig.author.site
-
-  const postAuthorTwitter =
-    blogPost.author?.social?.twitter || siteConfig.links.twitter.username
-
   const postOgImage = blogPost.og_image
     ? absoluteUrl(`/blog-og/${blogPost.og_image}`)
     : absoluteUrl(`/${locale}/blog/og/${blogSlug}`)
@@ -125,13 +114,7 @@ export async function generateMetadata({
       ],
     },
 
-    twitter: {
-      title: blogPost.title,
-      images: [postOgImage],
-      creator: postAuthorTwitter,
-      card: 'summary_large_image',
-      description: blogPost.excerpt,
-    },
+ 
   }
 }
 

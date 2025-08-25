@@ -47,10 +47,7 @@ export function DashboardTableOfContents({
   if (!toc?.items || !mounted) {
     return (
       <div className="space-y-2">
-        <DefaultTableOfContentItems
-          messages={messages}
-          sourceFilePath={sourceFilePath}
-        />
+       
       </div>
     )
   }
@@ -64,37 +61,10 @@ export function DashboardTableOfContents({
       <div className="py-4">
         <Separator />
       </div>
-
-      <DefaultTableOfContentItems
-        messages={messages}
-        sourceFilePath={sourceFilePath}
-      />
     </div>
   )
 }
 
-function DefaultTableOfContentItems({
-  messages,
-  sourceFilePath,
-}: DefaultTableOfContentItemsProps) {
-  return (
-    <div className="mt-2 flex flex-col gap-1">
-      <a
-        className="text-muted-foreground hover:text-foreground flex items-center gap-2 transition"
-        href={`${siteConfig.links.github.url}/edit/main/apps/content/${sourceFilePath}`}
-      >
-        {messages.editPageOnGitHub} <ExternalLink size={12} />
-      </a>
-
-      <a
-        className="text-muted-foreground hover:text-foreground flex items-center gap-2 transition"
-        href={`${siteConfig.links.github.url}/discussions/new/choose`}
-      >
-        {messages.startDiscussionOnGitHub} <ExternalLink size={12} />
-      </a>
-    </div>
-  )
-}
 
 function useActiveItem(itemIds: string[]) {
   const [activeId, setActiveId] = useState<string | null>(null)
