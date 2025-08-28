@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+:lang(ar) * {
   font-family: "Tajawal";
 }
 
@@ -73,7 +73,7 @@
   }
 }
 
-@layer utilities {
+/* @layer utilities {
   .step {
     counter-increment: step;
   }
@@ -83,7 +83,7 @@
     @apply ml-[-50px] mt-[-4px];
     content: counter(step);
   }
-}
+} */
 
 @media (max-width: 640px) {
   .container {

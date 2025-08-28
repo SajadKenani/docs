@@ -1,7 +1,7 @@
 import {
   CopyButton,
   CopyNpmCommandButton,
-} from './docs/mdx-components/copy-button'
+} from './agent/mdx-components/copy-button'
 
 import { highlightServerCode } from '@/lib/newyolk/utils/code-theme'
 import { cn } from '@/lib/utils'

@@ -10,13 +10,13 @@ import {
 } from '@/components/ui/sheet'
 
 import { getObjectValueByLocale } from '@/lib/newyolk/utils/locale'
-import { useDocsConfig } from '@/lib/newyolk/hooks/use-docs-config'
-import { DocsSidebarNav } from './docs/sidebar-nav'
+import { useClientConfig } from '@/lib/newyolk/hooks/use-client-config'
+import { AgentSidebarNav } from './agent/sidebar-nav'
 import { ScrollArea } from './ui/scroll-area'
 import { siteConfig } from '@/config/site'
 import { Icons } from '@/components/icons'
 import { MobileLink } from './mobile-link'
-import { blogConfig } from '@/config/blog'
+import { clientConfig } from '@/config/client'
 import { usePathname } from '@/navigation'
 import { Button } from './ui/button'
 
@@ -31,7 +31,7 @@ interface MobileNavProps {
 
 export function MobileNav({ messages, menuLinks }: MobileNavProps) {
   const pathname = usePathname()
-  const docsConfig = useDocsConfig()
+  const clientConfig = useClientConfig()
   const [open, setOpen] = useState(false)
 
   const shouldDisplayDocsSidebarContent = pathname.startsWith('/docs')
@@ -68,13 +68,13 @@ export function MobileNav({ messages, menuLinks }: MobileNavProps) {
 
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">
-            {blogConfig.mainNav?.map((item) => (
+            {clientConfig.client.mainNav?.map((item) => (
               <MobileLink key={item.href} href="/blog" onOpenChange={setOpen}>
-                {getObjectValueByLocale(item.title, docsConfig.currentLocale)}
+                {getObjectValueByLocale(item.title, clientConfig.currentLocale)}
               </MobileLink>
             ))}
 
-            {docsConfig.docs.mainNav?.map(
+            {clientConfig.client.mainNav?.map(
               (item) =>
                 item.href && (
                   <MobileLink
@@ -84,7 +84,7 @@ export function MobileNav({ messages, menuLinks }: MobileNavProps) {
                   >
                     {getObjectValueByLocale(
                       item.title,
-                      docsConfig.currentLocale
+                      clientConfig.currentLocale
                     )}
                   </MobileLink>
                 )
@@ -93,10 +93,10 @@ export function MobileNav({ messages, menuLinks }: MobileNavProps) {
 
           <div className="flex flex-col space-y-2">
             {shouldDisplayDocsSidebarContent && (
-              <DocsSidebarNav
+              <AgentSidebarNav
                 isMobile
-                locale={docsConfig.currentLocale}
-                items={docsConfig.docs.sidebarNav}
+                locale={clientConfig.currentLocale}
+                items={clientConfig.client.sidebarNav}
                 handleMobileSidebar={setOpen}
               />
             )}

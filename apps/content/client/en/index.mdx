@@ -1,0 +1,304 @@
+---
+title: Client
+description: A comprehensive digital ecosystem that revolutionizes agricultural investment through technology. NewYolk enables customers to invest in digital farm assets and generate revenue through an innovative, transparent, and scalable platform.
+---
+
+## Overview
+
+NewYolk bridges traditional agriculture with modern fintech, offering a unique investment model where customers can purchase hens and earn revenue from yolk sales. With physical operations in Romania and Iraq, the platform provides real agricultural backing for digital investments.
+
+Built with a modern monorepo architecture, NewYolk delivers a complete solution spanning internal operations, customer engagement, and mobile experiences.
+
+## Monorepo Architecture
+
+The platform is organized as a monorepo with four main applications, each serving specific business functions:
+
+### `/apps/crm` - Internal Operations System
+**Technology**: Next.js with TypeScript  
+**Purpose**: Employee and business operations management
+
+#### Sales Module
+- **Lead Management**: Comprehensive lead tracking and conversion pipeline
+- **Sales Dashboard**: Real-time performance metrics and analytics
+- **Customer Onboarding**: Streamlined registration and account activation
+- **Commission Tracking**: Automated sales performance and compensation management
+
+#### Retention Module
+- **Portfolio Management**: Customer account and investment oversight
+- **Retention Analytics**: Customer engagement and profitability insights
+- **Renewal Tools**: Automated upselling and reinvestment campaigns
+- **Support Management**: Integrated ticketing and customer service system
+
+### `/apps/marketing` - Customer Website
+**Technology**: Next.js with TypeScript  
+**Purpose**: Primary customer-facing platform for investment and account management
+
+#### Core Features
+- **Secure Authentication**: JWT/OAuth-based login system
+- **Investment Management**: Purchase hens, track performance, view portfolio
+- **Financial Operations**: Wallet management, withdrawals, transaction history
+- **Communication**: Real-time notifications and updates
+- **Localization**: Multi-language support (Romanian/Iraqi markets)
+- **Landing Pages**: Marketing and conversion-optimized pages
+
+### `/apps/expo` - Mobile Application
+**Technology**: Expo (React Native)  
+**Purpose**: Cross-platform mobile app for iOS and Android
+
+#### Key Capabilities
+- **Investment Dashboard**: Real-time portfolio tracking and earnings
+- **Push Notifications**: Instant alerts for sales, payouts, and opportunities
+- **Mobile Commerce**: Streamlined purchase and investment flows
+- **Secure Payments**: Integrated payment gateway support
+- **Offline Support**: Essential features available without internet connection
+- **Native Features**: Camera, biometric auth, device notifications
+
+### `/apps/docs` - Documentation Site
+**Technology**: Next.js with MDX  
+**Purpose**: Comprehensive documentation and developer resources
+
+#### Features
+- **API Documentation**: Complete REST/GraphQL API references
+- **Developer Guides**: Integration tutorials and best practices
+- **User Documentation**: Platform usage guides and FAQs
+- **Component Library**: Shared UI component documentation
+- **Architecture Docs**: System design and technical specifications
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- pnpm (recommended package manager)
+- Git
+- Expo CLI (for mobile development)
+
+### Monorepo Setup
+
+1. **Clone the repository**
+   ```bash
+   npx degit daltonmenezes/newyolk your_project_name
+   cd your_project_name
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+
+3. **Start all applications**
+   ```bash
+   # Start all apps simultaneously
+   pnpm dev
+
+   # Or start individual applications
+   pnpm dev:crm        # CRM system
+   pnpm dev:marketing  # Customer website
+   pnpm dev:expo       # Mobile app
+   pnpm dev:docs       # Documentation site
+   ```
+
+4. **Access applications**
+   - CRM: [http://localhost:3001](http://localhost:3001)
+   - Marketing: [http://localhost:3000](http://localhost:3000)
+   - Docs: [http://localhost:3002](http://localhost:3002)
+   - Expo: Mobile simulator or Expo Go app
+
+### Environment Setup
+Each app has its own environment configuration:
+
+```bash
+# development
+### ! Global ! ###############################################
+DOTENV_KEY=dotenv
+NEXT_PUBLIC_IS_PRODUCTION=boolean
+ENABLE_EXPERIMENTAL_COREPACK=number
+
+# ? Supabase
+NEXT_PUBLIC_SUPABASE_URL=url
+SUPABASE_ANON_KEY=secret_key
+SUPABASE_SERVICE_KEY=secret_key
+
+# ? Database 
+DATABASE_URL=secret_key
+DIRECT_DATABASE_URL=secret_key
+
+# ? Telegram 
+TELEGRAM_BOT_TOKEN=secret_token
+TELEGRAM_DEPOSIT_CHAT_ID=secret_id
+TELEGRAM_WITHDRAW_CHAT_ID=secret_number
+TELEGRAM_LISTING_CHAT_ID=-secret_number
+TELEGRAM_NETOPIA_CHAT_ID=-secret_number
+
+# ? Google OAuth
+AUTH_GOOGLE_ID=secret_id
+AUTH_GOOGLE_SECRET=secret
+
+# ? Google SMTP
+EMAIL_SERVER=secret
+EMAIL_FROM=contact@newyolk.io
+EMAIL_PASSWORD=secret_password
+
+# ? NextAuth
+AUTH_SECRET=secret
+
+# ? PostHog
+POSTHOG_KEY=secret_key
+POSTHOG_HOST=secret_url
+
+### ! Web ! ###############################################
+# ! PUBLIC ENV VARIABLES
+# ? Google Tag Manager
+NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID_WEB=secret
+
+# ? Sentry
+NEXT_PUBLIC_SENTRY_DSN=secret_url
+SENTRY_AUTH_TOKEN=secret_token
+
+# ? NextAuth
+# When deploying your site set the NEXT_PUBLIC_AUTH_URL environment variable to the canonical URL of the website.
+NEXT_PUBLIC_AUTH_URL_WEB=http://localhost:3000
+
+# ? PostHog
+NEXT_PUBLIC_POSTHOG_KEY=secret_key
+NEXT_PUBLIC_POSTHOG_HOST=secret_url
+
+# ? Mapbox 
+NEXT_PUBLIC_MAPBOX_TOKEN=secret_token
+
+### ! CRM ! ###############################################
+# ! PUBLIC ENV VARIABLES
+# ? NextAuth
+NEXT_PUBLIC_AUTH_URL_CRM=http://localhost:3001
+NEXT_PUBLIC_AUTH_URL_MARKETING=http://localhost:3002
+
+
+# ? Meta
+META_APP_ID=secret_id
+META_APP_SECRET=secret
+META_APP_CLIENT_TOKEN=secret_token
+META_APP_TOKEN=secret_token
+META_SYSTEM_USER_ACCESS_TOKEN=secret_token
+
+# ? Tabadul
+TABADUL_REST_API_URL=secret_url
+TABADUL_API_USERNAME=secret_name
+TABADUL_API_PASSWORD=secret_password
+```
+
+## Technology Stack
+
+### Shared Technologies
+- **Package Manager**: pnpm with workspace support
+- **TypeScript**: Strict type checking across all apps
+- **Tailwind CSS**: Consistent styling system
+- **UI Components**: shadcn/ui component library
+- **Authentication**: JWT/OAuth implementation
+- **Database**: Shared database layer
+- **API**: GraphQL/REST API endpoints
+
+### App-Specific Technologies
+- **CRM & Marketing**: Next.js 14, React Server Components
+- **Expo**: React Native, Expo SDK, EAS Build
+- **Docs**: Next.js with MDX, Nextra or similar
+- **Mobile**: Native modules for camera, payments, biometrics
+
+## Business Model
+
+NewYolk operates on a transparent agricultural investment model:
+
+1. **Customer Investment**: Purchase digital hens through the platform
+2. **Physical Operations**: Real farms in Romania and Iraq manage livestock
+3. **Revenue Generation**: Yolk sales generate returns for investors
+4. **Profit Distribution**: Regular payouts based on performance metrics
+5. **Reinvestment Options**: Scale investments through platform tools
+
+## Market Focus
+
+- **Primary Markets**: Romania and Iraq
+- **Target Audience**: Digital-savvy investors seeking alternative assets
+- **Scalability**: Infrastructure designed for expansion to additional markets
+
+## Key Benefits
+
+- **Transparency**: Real-time tracking of investments and returns
+- **Accessibility**: Low barrier to entry for agricultural investment
+- **Technology-Driven**: Modern platform with mobile-first approach
+- **Physical Backing**: Real agricultural operations provide asset security
+- **Scalable Returns**: Growth potential through reinvestment options
+
+## Development
+
+### Monorepo Structure
+```
+newyolk/
+├── apps/
+│   ├── crm/           # Internal CRM system
+│   │   ├── src/
+│   │   ├── components/
+│   │   └── package.json
+│   ├── marketing/     # Customer website
+│   │   ├── src/
+│   │   ├── components/
+│   │   └── package.json
+│   ├── expo/          # Mobile application
+│   │   ├── src/
+│   │   ├── app.json
+│   │   └── package.json
+│   └── docs/          # Documentation site
+│       ├── pages/
+│       ├── components/
+│       └── package.json
+├── packages/
+│   ├── ui/            # Shared UI components
+│   ├── config/        # Shared configurations
+│   ├── types/         # TypeScript type definitions
+│   └── utils/         # Shared utilities
+├── package.json       # Root package.json
+└── pnpm-workspace.yaml
+```
+
+### Workspace Commands
+```bash
+# Install dependencies for all workspaces
+pnpm install
+
+# Run command in specific workspace
+pnpm --filter crm dev
+pnpm --filter marketing build
+pnpm --filter expo start
+
+# Run command in all workspaces
+pnpm -r build
+pnpm -r test
+
+# Add dependency to specific workspace
+pnpm --filter crm add lodash
+pnpm --filter expo add react-native-camera
+```
+
+### Shared Packages
+- **`packages/ui`**: Reusable UI components across all apps
+- **`packages/config`**: Shared configuration files (ESLint, Tailwind, etc.)
+- **`packages/types`**: TypeScript definitions and interfaces
+- **`packages/utils`**: Common utility functions and helpers
+
+### Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Support
+
+For questions, issues, or contributions:
+- Create an issue on GitHub
+- Contact the development team
+- Check the documentation wiki
+
+---
+
+*NewYolk - Bridging Traditional Agriculture with Digital Innovation*

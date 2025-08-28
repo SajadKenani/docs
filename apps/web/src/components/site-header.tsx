@@ -19,8 +19,9 @@ export async function SiteHeader() {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <MainNav
           messages={{
-            docs: t('words.docs'),
-            blog: t('words.blog'),
+            client: t('words.client'),
+            agent: t('words.agent'),
+            IT: t('words.IT'),
           }}
         />
 
@@ -28,8 +29,9 @@ export async function SiteHeader() {
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <CommandMenu
               messages={{
-                docs: t('words.docs'),
-                blog: t('words.blog'),
+                client: t('words.client'),
+                agent: t('words.agent'),
+                IT: t('words.IT'),
                 search: t('search.search'),
                 noResultsFound: t('search.no_results_found'),
                 typeCommandOrSearch: t('search.type_command_or_search'),

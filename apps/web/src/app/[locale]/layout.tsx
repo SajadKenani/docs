@@ -32,9 +32,7 @@ export async function generateMetadata({
       default: siteConfig.name,
       template: `%s - ${siteConfig.name}`,
     },
-
     description: getObjectValueByLocale(siteConfig.description, params.locale),
-
     keywords: [
       'Docs',
       'Blog',
@@ -49,14 +47,12 @@ export async function generateMetadata({
       'Server Components',
       'Internationalization',
     ],
-
     authors: [
       {
         name: siteConfig.author.name,
         url: siteConfig.author.site,
       },
     ],
-
     creator: siteConfig.author.name,
 
     openGraph: {

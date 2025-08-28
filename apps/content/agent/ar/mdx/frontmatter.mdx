@@ -1,0 +1,106 @@
+---
+title: رأس بيانات التعريف
+description: تعلم كيفية استخدام رأس بيانات التعريف في ملفات MDX.
+---
+
+رأس بيانات التعريف هو جزء مهم من ملف MDX.
+يُستخدم لتحديد معلومات حول محتوى الملف،
+مثل العنوان، الوصف، المؤلف، تاريخ النشر، وغيرها.
+
+يتم تعريف رأس بيانات التعريف في بداية الملف، بين `---` (ثلاث شرطات) في البداية والنهاية.
+
+## الهيكل
+
+يتم تعريف رأس بيانات التعريف بتنسيق مفتاح-قيمة، حيث يكون المفتاح هو اسم بيانات التعريف والقيمة هي محتواها.
+
+**مثال:**
+
+```mdx
+---
+title: عنوان الوثيقة
+description: وصف الوثيقة
+---
+```
+
+اعتمادًا على نوع المستند (توثيق، منشور مدونة، إلخ)، يمكن استخدام بيانات تعريف مختلفة.
+
+## بيانات التعريف للتوثيق
+
+- `title`
+- `description`
+- `links`
+  - `source`
+  - `docs`
+  - `blog`
+  - `api`
+
+**مثال:**
+
+```mdx
+---
+title: Título do documento
+description: Descrição do documento
+links:
+  source: https://google.com
+  docs: /docs
+  blog: /blog
+  api: https://google.com
+---
+```
+
+## بيانات التعريف لمنشور المدونة
+
+<Alert className="my-4" variant="warning">
+  <AlertTitle className="font-bold">`author_id`</AlertTitle>
+
+  <AlertDescription className="pl-2">
+    هو معرّف مؤلف المنشور.
+    يجب أن يتطابق مع قيمة `id` الخاصة بالمؤلف والمُعرّفة في الملف `src/config/blog.ts`
+    وهو الملف الذي يحتوي على جميع بيانات المؤلفين الكاملة.
+  </AlertDescription>
+</Alert>
+
+<Alert className="my-4" variant="warning">
+  <AlertTitle className="font-bold">`og_image`</AlertTitle>
+
+  <AlertDescription className="pl-2">
+    هي الصورة التي سيتم استخدامها كصورة بارزة للمنشور عند مشاركته على وسائل التواصل الاجتماعي إذا كنت لا ترغب في استخدام الصورة التي يتم إنشاؤها تلقائيًا.
+    يجب حفظ الصور في مجلد `public/blog-og`.
+    استخدم فقط اسم ملف الصورة وامتدادها.
+  </AlertDescription>
+</Alert>
+
+- `title`
+- `excerpt`
+- `date`
+- `author_id`
+- `og_image`
+- `tags`
+- `links`
+  - `source`
+  - `docs`
+  - `blog`
+  - `api`
+
+**مثال:**
+
+```mdx
+---
+title: Título do post
+date: 2024-08-07 22:33:00
+excerpt: Resumo do post
+author_id: daltonmenezes
+og_image: introducing-blogs-og.jpg
+links:
+  source: https://google.com
+  docs: /docs
+  blog: /blog
+  api: https://google.com
+tags: [next.js, open-graph, blog]
+---
+```
+
+
+
+
+

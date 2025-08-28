@@ -30,10 +30,10 @@ import {
   CommandSeparator,
 } from './ui/command'
 
-import { useDocsConfig } from '@/lib/newyolk/hooks/use-docs-config'
-import { useBlogConfig } from '@/lib/newyolk/hooks/use-blog-config'
+import { useClientConfig } from '@/lib/newyolk/hooks/use-client-config'
+import { useAgentConfig } from '@/lib/newyolk/hooks/use-agent-config'
+import { useITConfig } from '@/lib/newyolk/hooks/use-it-config'
 import { getObjectValueByLocale } from '@/lib/newyolk/utils/locale'
-import { allBlogs } from 'contentlayer/generated'
 
 function DocsCommandMenu({
   runCommand,
@@ -45,7 +45,7 @@ function DocsCommandMenu({
   }
 }) {
   const router = useRouter()
-  const docsConfig = useDocsConfig()
+  const clientConfig = useClientConfig()
 
   function renderItems(items: NavItemWithChildren[]) {
     return items.map((navItem) => {
@@ -54,13 +54,13 @@ function DocsCommandMenu({
           <Fragment
             key={getObjectValueByLocale(
               navItem.title,
-              docsConfig.currentLocale
+              clientConfig.currentLocale
             )}
           >
             <CommandGroup
               heading={getObjectValueByLocale(
                 navItem.title,
-                docsConfig.currentLocale
+                clientConfig.currentLocale
               )}
             >
               {renderItems(navItem.items)}
@@ -74,7 +74,7 @@ function DocsCommandMenu({
           <CommandItem
             value={getObjectValueByLocale(
               navItem.title,
-              docsConfig.currentLocale
+              clientConfig.currentLocale
             )}
             onSelect={() => {
               runCommand(() => router.push(navItem.href as string))
@@ -84,7 +84,7 @@ function DocsCommandMenu({
               <CircleIcon className="size-3" />
             </div>
 
-            {getObjectValueByLocale(navItem.title, docsConfig.currentLocale)}
+            {getObjectValueByLocale(navItem.title, clientConfig.currentLocale)}
           </CommandItem>
 
           {navItem?.items?.length > 0 && (
@@ -97,12 +97,12 @@ function DocsCommandMenu({
 
   return (
     <CommandGroup heading={messages.docs}>
-      {docsConfig.docs.sidebarNav.map((group) => (
+      {clientConfig.client.sidebarNav.map((group) => (
         <CommandGroup
-          key={getObjectValueByLocale(group.title, docsConfig.currentLocale)}
+          key={getObjectValueByLocale(group.title, clientConfig.currentLocale)}
           heading={getObjectValueByLocale(
             group.title,
-            docsConfig.currentLocale
+            clientConfig.currentLocale
           )}
         >
           {renderItems(group.items)}
@@ -112,57 +112,12 @@ function DocsCommandMenu({
   )
 }
 
-function BlogCommandMenu({
-  runCommand,
-  messages,
-}: {
-  runCommand: (command: () => unknown) => void
-  messages: {
-    blog: string
-  }
-}) {
-  const router = useRouter()
-  const locale = useLocale()
-
-  const posts = useMemo(() => {
-    return allBlogs.filter((post) => {
-      const [postLocale] = post.slugAsParams.split('/')
-
-      return postLocale === locale
-    })
-  }, [locale])
-
-  return (
-    <CommandGroup heading={messages.blog}>
-      {posts.map((post) => (
-        <CommandItem
-          key={post._id}
-          value={`${post.title} ${post.excerpt} ${post.tags.join(' ')}`}
-          onSelect={() => {
-            const [, ...slugs] = post.slugAsParams.split('/')
-            const slug = slugs.join('/')
-
-            runCommand(() => router.push(`/blog/${slug}`))
-          }}
-        >
-          <div className="mx-1 flex size-4 items-center justify-center">
-            <FileTextIcon className="size-4" />
-          </div>
-
-          <div className="flex flex-col gap-1 p-2 w-full">
-            <h1 className="text-lg">{post.title}</h1>
-            <p className="truncate">{post.excerpt}</p>
-          </div>
-        </CommandItem>
-      ))}
-    </CommandGroup>
-  )
-}
 
 interface CommandMenuProps extends AlertDialogProps {
   messages: {
-    docs: string
-    blog: string
+    client: string
+    agent: string
+    IT: string
     search: string
     noResultsFound: string
     searchDocumentation: string
@@ -180,8 +135,9 @@ interface CommandMenuProps extends AlertDialogProps {
 export function CommandMenu({ messages, ...props }: CommandMenuProps) {
   const router = useRouter()
   const { setTheme } = useTheme()
-  const docsConfig = useDocsConfig()
-  const blogConfig = useBlogConfig()
+  const clientConfig = useClientConfig()
+  const agentConfig = useAgentConfig()
+  const itConfig = useITConfig()
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -212,8 +168,8 @@ export function CommandMenu({ messages, ...props }: CommandMenuProps) {
   }, [])
 
   const mainNavs = useMemo(
-    () => [...docsConfig.docs.mainNav, ...blogConfig.blog.mainNav],
-    [docsConfig, blogConfig]
+    () => [...clientConfig.client.mainNav, ...agentConfig.agent.mainNav, ...itConfig.IT.mainNav],
+    [clientConfig, agentConfig, itConfig]
   )
 
   return (
@@ -251,7 +207,7 @@ export function CommandMenu({ messages, ...props }: CommandMenuProps) {
                   key={navItem.href}
                   value={getObjectValueByLocale(
                     navItem.title,
-                    docsConfig.currentLocale
+                    clientConfig.currentLocale
                   )}
                   onSelect={() =>
                     runCommand(() => router.push(navItem.href as string))
@@ -261,27 +217,14 @@ export function CommandMenu({ messages, ...props }: CommandMenuProps) {
 
                   {getObjectValueByLocale(
                     navItem.title,
-                    docsConfig.currentLocale
+                    clientConfig.currentLocale
                   )}
                 </CommandItem>
               ))}
           </CommandGroup>
 
-          <DocsCommandMenu
-            runCommand={runCommand}
-            messages={{
-              docs: messages.docs,
-            }}
-          />
-
           <CommandSeparator className="my-1" />
 
-          <BlogCommandMenu
-            runCommand={runCommand}
-            messages={{
-              blog: messages.blog,
-            }}
-          />
 
           <CommandSeparator className="my-1" />
 

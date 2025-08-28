@@ -5,8 +5,6 @@ import { visit } from 'unist-util-visit'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
-import type { BlogConfig } from './src/lib/newyolk/types/blog'
-
 import {
   makeSource,
   defineNestedType,
@@ -16,7 +14,6 @@ import {
 
 import { rehypeNpmCommand } from './src/lib/newyolk/utils/rehype-npm-command'
 import { getContentLayerCodeTheme } from './src/lib/newyolk/utils/code-theme'
-import { blogConfig } from './src/config/blog'
 
 const docComputedFields: ComputedFields = {
   slug: {
@@ -30,69 +27,27 @@ const docComputedFields: ComputedFields = {
   },
 }
 
-const blogComputedFields: ComputedFields = {
-  slug: {
-    type: 'string',
-    resolve: (post) => `/${post._raw.flattenedPath}`,
-  },
-
-  slugAsParams: {
-    type: 'string',
-    resolve: (post) => post._raw.flattenedPath.split('/').slice(1).join('/'),
-  },
-
-  author: {
-    type: 'nested',
-    description: 'The author of the post',
-
-    resolve: (
-      post
-    ): Partial<BlogConfig['authors'][number]> & { bio?: string } => {
-      const author = blogConfig.authors.find(
-        (author) => author.id === post.author_id
-      )
-
-      const [, locale] = post._raw.sourceFileDir.split('/')
-
-      if (!author) {
-        return {
-          id: post?.author_id,
-        }
-      }
-
-      return {
-        ...author,
-        bio: author.bio?.[locale as keyof typeof author.bio] || author.bio?.en,
-      }
-    },
-  },
-
-  readTimeInMinutes: {
-    type: 'number',
-
-    resolve: (post) => {
-      const wordsPerMinute = 200
-      const numberOfWords = post.body.raw.trim().split(/\s+/).length
-      const readTimeInMinutes = numberOfWords / wordsPerMinute
-
-      return Math.ceil(readTimeInMinutes)
-    },
-  },
-}
-
 const LinksProperties = defineNestedType(() => ({
   name: 'LinksProperties',
 
   fields: {
-    doc: {
+    client: {
       type: 'string',
     },
 
-    blog: {
+    agent: {
+      type: 'string',
+    },
+
+    it: {
       type: 'string',
     },
 
     api: {
+      type: 'string',
+    },
+
+    doc: {
       type: 'string',
     },
 
@@ -102,66 +57,10 @@ const LinksProperties = defineNestedType(() => ({
   },
 }))
 
-const AuthorProperties = defineNestedType(() => ({
-  name: 'AuthorProperties',
-
-  fields: {
-    id: {
-      type: 'string',
-    },
-
-    name: {
-      type: 'string',
-    },
-
-    bio: {
-      type: 'string',
-    },
-
-    site: {
-      type: 'string',
-    },
-
-    email: {
-      type: 'string',
-    },
-
-    image: {
-      type: 'string',
-    },
-
-    social: {
-      type: 'nested',
-
-      of: defineNestedType(() => ({
-        name: 'SocialProperties',
-
-        fields: {
-          github: {
-            type: 'string',
-          },
-
-          twitter: {
-            type: 'string',
-          },
-
-          youtube: {
-            type: 'string',
-          },
-
-          linkedin: {
-            type: 'string',
-          },
-        },
-      })),
-    },
-  },
-}))
-
-export const Doc = defineDocumentType(() => ({
-  name: 'Doc',
+export const Client = defineDocumentType(() => ({
+  name: 'Client',
   contentType: 'mdx',
-  filePathPattern: `docs/**/*.mdx`,
+  filePathPattern: `client/**/*.mdx`,
 
   fields: {
     title: {
@@ -188,11 +87,10 @@ export const Doc = defineDocumentType(() => ({
 
   computedFields: docComputedFields,
 }))
-
-export const Blog = defineDocumentType(() => ({
-  name: 'Blog',
+export const Agent = defineDocumentType(() => ({
+  name: 'Agent',
   contentType: 'mdx',
-  filePathPattern: `blog/**/*.mdx`,
+  filePathPattern: `agent/**/*.mdx`,
 
   fields: {
     title: {
@@ -200,30 +98,9 @@ export const Blog = defineDocumentType(() => ({
       required: true,
     },
 
-    excerpt: {
+    description: {
       type: 'string',
       required: true,
-    },
-
-    date: {
-      type: 'date',
-      description: 'The date of the post',
-      required: true,
-    },
-
-    author: {
-      type: 'nested',
-      of: AuthorProperties,
-    },
-
-    author_id: {
-      type: 'string',
-      description: 'The author of the post',
-    },
-
-    og_image: {
-      type: 'string',
-      description: 'The image for the open graph meta tag',
     },
 
     links: {
@@ -231,20 +108,49 @@ export const Blog = defineDocumentType(() => ({
       of: LinksProperties,
     },
 
-    tags: {
-      type: 'list',
-      of: { type: 'string' },
-      required: true,
+    toc: {
+      type: 'boolean',
+      default: true,
+      required: false,
     },
   },
 
-  computedFields: blogComputedFields,
+  computedFields: docComputedFields,
 }))
+export const IT = defineDocumentType(() => ({
+  name: 'IT',
+  contentType: 'mdx',
+  filePathPattern: `it/**/*.mdx`,
 
+  fields: {
+    title: {
+      type: 'string',
+      required: true,
+    },
+
+    description: {
+      type: 'string',
+      required: true,
+    },
+
+    links: {
+      type: 'nested',
+      of: LinksProperties,
+    },
+
+    toc: {
+      type: 'boolean',
+      default: true,
+      required: false,
+    },
+  },
+
+  computedFields: docComputedFields,
+}))
 export default makeSource({
-  documentTypes: [Doc, Blog],
+  documentTypes: [Client, Agent, IT],
   contentDirPath: '../content',
-  contentDirInclude: ['docs', 'blog'],
+  contentDirInclude: ['client', 'agent', 'it'],
 
   mdx: {
     remarkPlugins: [remarkGfm, codeImport],

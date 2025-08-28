@@ -13,9 +13,9 @@
     },
 
     "words": {
-      "menu": "Menu",
-      "docs": "Docs",
-      "blog": "Blog"
+      "client": "Client",
+      "agent": "Agent",
+      "IT": "IT"
     },
 
     "featured_cards": {

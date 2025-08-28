@@ -76,5 +76,6 @@ export async function getTableOfContents(
 ): Promise<TableOfContents> {
   const result = await remark().use(getToc).process(content)
 
+  console.log(result.data)
   return result.data as TableOfContents
 }

@@ -7,8 +7,9 @@ import { cn } from '@/lib/utils'
 
 interface MainNavProps {
   messages: {
-    docs: string
-    blog: string
+    IT: string
+    agent: string
+    client: string
   }
 }
 
@@ -27,27 +28,39 @@ export function MainNav({ messages }: MainNavProps) {
 
       <nav className="flex items-center gap-4 text-sm lg:gap-6">
         <Link
-          href="/blog"
+          href="/client"
           className={cn(
             'hover:text-foreground/80 transition-colors',
-            pathname.includes('/blog')
+            pathname.includes('/client')
               ? 'dark:text-primary-active'
               : 'text-foreground/60'
           )}
         >
-          {messages.blog}
+          {messages.client}
         </Link>
 
         <Link
-          href="/docs"
+          href="/agent"
           className={cn(
             'hover:text-foreground/80 transition-colors',
-            pathname.includes('/docs')
+            pathname.includes('/agent')
               ? 'dark:text-primary-active'
               : 'text-foreground/60'
           )}
         >
-          {messages.docs}
+          {messages.agent}
+        </Link>
+
+                <Link
+          href="/it"
+          className={cn(
+            'hover:text-foreground/80 transition-colors',
+            pathname.includes('/it')
+              ? 'dark:text-primary-active'
+              : 'text-foreground/60'
+          )}
+        >
+          {messages.IT}
         </Link>
       </nav>
     </div>
