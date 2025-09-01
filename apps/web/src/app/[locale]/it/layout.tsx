@@ -1,7 +1,7 @@
 import { setRequestLocale } from 'next-intl/server'
 
 import { getServerITConfig } from '@/lib/newyolk/utils/get-server-it-config'
-import { ITSidebarNav } from '@/components/IT/sidebar-nav'
+import { ITSidebarNav } from '@/components/it/sidebar-nav'
 import { ScrollArea } from '@/components/ui/scroll-area'
 
 import type { LocaleOptions } from '@/lib/newyolk/types/i18n'
