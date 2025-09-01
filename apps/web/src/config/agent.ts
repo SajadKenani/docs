@@ -13,7 +13,6 @@ export const agentConfig: AgentConfig = {
   mainNav: [
     {
       href: '/agent',
-
       title: {
         en: 'Agent',
         ar: 'العميل',
@@ -25,7 +24,7 @@ export const agentConfig: AgentConfig = {
     {
       title: {
         en: 'Getting Started',
-        ar: 'البدء',
+        ar: 'بدأ الان',
       },
 
       items: [
@@ -41,37 +40,66 @@ export const agentConfig: AgentConfig = {
         },
 
         {
-          href: '/agent/adding-new-agent',
+          href: '/agent/getting-started',
 
           title: {
-            en: 'Adding new agent',
-            ar: 'إضافة مستندات جديدة',
+            en: 'Getting Started',
+            ar: 'هيا نبدأ',
           },
 
           items: [],
         },
 
         {
-          href: '/agent/customizing',
+          href: '/agent/dashboard-overview',
 
           title: {
-            en: 'Customizing',
+            en: 'Dashboard Overview',
             ar: 'تخصيص',
           },
 
           items: [],
         },
         {
-          href: '/agent/test',
+          href: '/agent/features-for-agents',
 
           title: {
-            en: 'Testing',
-            ar: 'اختبار',
+            en: 'Features For Agents',
+            ar: 'خصائص للعملاء',
           },
 
           items: [],
         },
+        {
+          href: '/agent/daily-overflow',
 
+          title: {
+            en: 'Daily Overflow',
+            ar: 'المهام اليومية',
+          },
+
+          items: [],
+        },
+        {
+          href: '/agent/troubleshooting',
+
+          title: {
+            en: 'Troubleshooting',
+            ar: 'مشاكل',
+          },
+
+          items: [],
+        },
+        {
+          href: '/agent/faq',
+
+          title: {
+            en: 'FAQ',
+            ar: 'الاسئلة المتكررة',
+          },
+
+          items: [],
+        },
         {
           title: {
             en: 'MDX',

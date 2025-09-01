@@ -41,11 +41,11 @@ export const clientConfig: ClientConfig = {
         },
 
         {
-          href: '/client/adding-new-client',
+          href: '/client/getting-started',
 
           title: {
-            en: 'Adding new Client',
-            ar: 'إضافة مستندات جديدة',
+            en: 'Getting Started',
+            ar: 'بدأ الان',
           },
 
           items: [],

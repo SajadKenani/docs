@@ -41,11 +41,11 @@ export const itConfig: ITConfig = {
         },
 
         {
-          href: '/it/adding-new-it',
+          href: '/it/getting-started',
 
           title: {
-            en: 'Adding new it',
-            ar: 'إضافة مستندات جديدة',
+            en: 'Getting Started',
+            ar: 'بدأ الان',
           },
 
           items: [],
