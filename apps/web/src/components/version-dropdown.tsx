@@ -40,7 +40,7 @@ export function VersionDropdown({ messages }: VersionDropdownProps) {
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
-      <DropdownMenuTrigger asChild>
+      {/* <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
           aria-expanded={open}
@@ -55,7 +55,7 @@ export function VersionDropdown({ messages }: VersionDropdownProps) {
 
           <span className="pointer-events-auto absolute z-10 block h-14 w-full" />
         </Button>
-      </DropdownMenuTrigger>
+      </DropdownMenuTrigger> */}
 
       <DropdownMenuContent
         className="flex flex-col items-center"

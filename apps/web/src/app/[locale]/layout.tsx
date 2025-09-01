@@ -1,5 +1,4 @@
 import { setRequestLocale } from 'next-intl/server'
-
 import type { LocaleOptions } from '@/lib/newyolk/types/i18n'
 import type { Metadata, Viewport } from 'next'
 import '@/styles/globals.css'
@@ -26,7 +25,6 @@ export async function generateMetadata({
   params: { locale: LocaleOptions }
 }): Promise<Metadata> {
   setRequestLocale(params.locale || defaultLocale)
-
   return {
     title: {
       default: siteConfig.name,

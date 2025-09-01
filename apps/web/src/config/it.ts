@@ -3,8 +3,8 @@
  * to be used by files like:
  * - src/components/command-menu.tsx
  * - src/components/mobile-nav.tsx
- * - src/app/[locale]/Client/layout.tsx
- * - src/lib/newyolk/components/Client/pager.tsx
+ * - src/app/[locale]/it/layout.tsx
+ * - src/lib/newyolk/components/it/pager.tsx
  */
 
 import type { ITConfig } from '@/lib/newyolk/types/IT'
@@ -41,10 +41,10 @@ export const itConfig: ITConfig = {
         },
 
         {
-          href: '/it/adding-new-Client',
+          href: '/it/adding-new-it',
 
           title: {
-            en: 'Adding new Client',
+            en: 'Adding new it',
             ar: 'إضافة مستندات جديدة',
           },
 

@@ -1,17 +1,14 @@
 'use client'
 
 import { useMemo, useEffect, useState } from 'react'
-import { ExternalLink } from 'lucide-react'
 
 import { useMounted } from '@/lib/newyolk/hooks/use-mounted'
 import { TableOfContents } from '@/lib/newyolk/utils/toc'
 import { Separator } from '@/components/ui/separator'
-import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
 interface DefaultTableOfContentItemsProps {
   sourceFilePath: string
-
   messages: {
     onThisPage: string
     editPageOnGitHub: string
@@ -27,7 +24,6 @@ interface DashboardTableOfContentsProps
 export function DashboardTableOfContents({
   toc,
   messages,
-  sourceFilePath,
 }: DashboardTableOfContentsProps) {
   const itemIds = useMemo(
     () =>

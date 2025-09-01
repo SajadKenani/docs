@@ -30,7 +30,7 @@ export const clientConfig: ClientConfig = {
 
       items: [
         {
-          href: '/Client',
+          href: '/client',
 
           title: {
             en: 'Introduction',
@@ -41,7 +41,7 @@ export const clientConfig: ClientConfig = {
         },
 
         {
-          href: '/Client/adding-new-Client',
+          href: '/client/adding-new-client',
 
           title: {
             en: 'Adding new Client',
@@ -52,7 +52,7 @@ export const clientConfig: ClientConfig = {
         },
 
         {
-          href: '/Client/customizing',
+          href: '/client/customizing',
 
           title: {
             en: 'Customizing',
@@ -62,7 +62,7 @@ export const clientConfig: ClientConfig = {
           items: [],
         },
         {
-          href: '/Client/test',
+          href: '/client/test',
 
           title: {
             en: 'Testing',
@@ -84,7 +84,7 @@ export const clientConfig: ClientConfig = {
 
           items: [
             {
-              href: '/Client/mdx/frontmatter',
+              href: '/client/mdx/frontmatter',
 
               title: {
                 en: 'Frontmatter',
@@ -100,7 +100,7 @@ export const clientConfig: ClientConfig = {
             },
 
             {
-              href: '/Client/mdx/code',
+              href: '/client/mdx/code',
 
               title: {
                 en: 'Code',
@@ -116,7 +116,7 @@ export const clientConfig: ClientConfig = {
             },
 
             {
-              href: '/Client/mdx/components',
+              href: '/client/mdx/components',
 
               title: {
                 en: 'Components',
@@ -134,7 +134,7 @@ export const clientConfig: ClientConfig = {
         },
 
         {
-          href: '/Client/changelog',
+          href: '/client/changelog',
 
           title: {
             en: 'Changelog',

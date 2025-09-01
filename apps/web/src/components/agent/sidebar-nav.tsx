@@ -118,7 +118,7 @@ export function AgentSidebarNavItems({
                 <AccordionItem
                   value={getObjectValueByLocale(item.title, locale)}
                 >
-                  <AccordionTrigger className="py-0 pb-3">
+                  {/* <AccordionTrigger className="py-0 pb-3">
                     <h4 className="flex items-center gap-2 rounded-md pl-4 text-sm font-semibold">
                       {getObjectValueByLocale(item.title, locale)}
 
@@ -128,7 +128,7 @@ export function AgentSidebarNavItems({
                         </span>
                       )}
                     </h4>
-                  </AccordionTrigger>
+                  </AccordionTrigger> */}
 
                   <AccordionContent>
                     <div className="pl-4">

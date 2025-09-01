@@ -1,78 +1,104 @@
 ---
 title: Agent
-description: A comprehensive digital ecosystem that revolutionizes agricultural investment through technology. NewYolk enables customers to invest in digital farm assets and generate revenue through an innovative, transparent, and scalable platform.
+description: A comprehensive automation and intelligence system that powers NewYolk's agricultural investment platform. The agent system handles business processes, farm data synchronization, revenue distribution, notifications, and analytics through distributed, event-driven architecture.
 ---
 
 ## Overview
 
-NewYolk bridges traditional agriculture with modern fintech, offering a unique investment model where customers can purchase hens and earn revenue from yolk sales. With physical operations in Romania and Iraq, the platform provides real agricultural backing for digital investments.
+The NewYolk Agent System serves as the intelligent automation backbone of the agricultural investment platform, orchestrating complex business operations between physical farm operations and digital investment management. With distributed processing capabilities across Romania and Iraq, the system ensures seamless real-time synchronization of farm data, automated revenue calculations, and intelligent customer engagement.
 
-Built with a modern monorepo architecture, NewYolk delivers a complete solution spanning internal operations, customer engagement, and mobile experiences.
+Built with a modern microservices architecture, the Agent System delivers comprehensive automation spanning investment processing, farm operations monitoring, customer lifecycle management, and business intelligence.
 
-## Monorepo Architecture
+## Agent Architecture
 
-The platform is organized as a monorepo with four main applications, each serving specific business functions:
+The system is organized as a distributed agent network with six main modules, each handling specific automation functions:
 
-### `/apps/crm` - Internal Operations System
-**Technology**: Next.js with TypeScript  
-**Purpose**: Employee and business operations management
+### `/agents/investment` - Investment Processing System
+**Technology**: Node.js with TypeScript  
+**Purpose**: Automated investment management and portfolio operations
 
-#### Sales Module
-- **Lead Management**: Comprehensive lead tracking and conversion pipeline
-- **Sales Dashboard**: Real-time performance metrics and analytics
-- **Customer Onboarding**: Streamlined registration and account activation
-- **Commission Tracking**: Automated sales performance and compensation management
+#### Purchase Processing Module
+- **Investment Validation**: Real-time investment parameter verification and risk assessment
+- **Payment Processing**: Automated payment gateway integration and transaction management
+- **Hen Allocation**: Dynamic hen assignment based on farm capacity and customer preferences
+- **Portfolio Updates**: Real-time customer portfolio synchronization and tracking
 
-#### Retention Module
-- **Portfolio Management**: Customer account and investment oversight
-- **Retention Analytics**: Customer engagement and profitability insights
-- **Renewal Tools**: Automated upselling and reinvestment campaigns
-- **Support Management**: Integrated ticketing and customer service system
+#### Portfolio Management Module
+- **Performance Monitoring**: Continuous investment performance tracking and analysis
+- **Rebalancing Automation**: Intelligent portfolio optimization based on market conditions
+- **Risk Assessment**: Automated risk evaluation and mitigation strategies
+- **Renewal Processing**: Automated investment renewal and expansion management
 
-### `/apps/marketing` - Customer Website
-**Technology**: Next.js with TypeScript  
-**Purpose**: Primary customer-facing platform for investment and account management
+### `/agents/revenue` - Revenue Distribution System
+**Technology**: Node.js with TypeScript  
+**Purpose**: Automated revenue calculation and profit distribution
 
 #### Core Features
-- **Secure Authentication**: JWT/OAuth-based login system
-- **Investment Management**: Purchase hens, track performance, view portfolio
-- **Financial Operations**: Wallet management, withdrawals, transaction history
-- **Communication**: Real-time notifications and updates
-- **Localization**: Multi-language support (Romanian/Iraqi markets)
-- **Landing Pages**: Marketing and conversion-optimized pages
+- **Yolk Sales Tracking**: Real-time monitoring of yolk production and sales from farms
+- **Revenue Calculation**: Automated profit calculation based on production data
+- **Distribution Processing**: Intelligent profit distribution to investor wallets
+- **Performance Analytics**: Revenue trend analysis and forecasting
+- **Tax Compliance**: Automated tax calculation and reporting for different jurisdictions
+- **Payout Scheduling**: Flexible payout frequency management (daily/weekly/monthly)
 
-### `/apps/expo` - Mobile Application
-**Technology**: Expo (React Native)  
-**Purpose**: Cross-platform mobile app for iOS and Android
+### `/agents/farm-sync` - Farm Data Synchronization
+**Technology**: Node.js with TypeScript  
+**Purpose**: Real-time integration with Romanian and Iraqi farm operations
 
 #### Key Capabilities
-- **Investment Dashboard**: Real-time portfolio tracking and earnings
-- **Push Notifications**: Instant alerts for sales, payouts, and opportunities
-- **Mobile Commerce**: Streamlined purchase and investment flows
-- **Secure Payments**: Integrated payment gateway support
-- **Offline Support**: Essential features available without internet connection
-- **Native Features**: Camera, biometric auth, device notifications
+- **Production Monitoring**: Live tracking of hen productivity and health metrics
+- **Environmental Data**: Weather, temperature, and facility condition monitoring
+- **Feed Management**: Automated feed consumption tracking and optimization
+- **Health Surveillance**: Disease detection and veterinary alert systems
+- **Equipment Status**: Farm equipment monitoring and maintenance scheduling
+- **Compliance Tracking**: Regulatory compliance monitoring for both markets
 
-### `/apps/docs` - Documentation Site
-**Technology**: Next.js with MDX  
-**Purpose**: Comprehensive documentation and developer resources
+### `/agents/notification` - Multi-Channel Communication
+**Technology**: Node.js with TypeScript  
+**Purpose**: Intelligent notification and communication management
 
 #### Features
-- **API Documentation**: Complete REST/GraphQL API references
-- **Developer Guides**: Integration tutorials and best practices
-- **User Documentation**: Platform usage guides and FAQs
-- **Component Library**: Shared UI component documentation
-- **Architecture Docs**: System design and technical specifications
+- **Smart Routing**: Context-aware notification delivery optimization
+- **Channel Management**: Telegram, email, SMS, and push notification coordination
+- **Personalization**: AI-driven content personalization based on user behavior
+- **Delivery Tracking**: Comprehensive notification delivery analytics
+- **Template Engine**: Dynamic content generation for different notification types
+- **Escalation Logic**: Automated escalation for critical notifications
+
+### `/agents/analytics` - Business Intelligence System
+**Technology**: Node.js with TypeScript  
+**Purpose**: Real-time data processing and business insights
+
+#### Core Components
+- **Data Pipeline**: ETL processes for farm and investment data
+- **Performance Metrics**: Key performance indicator calculation and tracking
+- **Predictive Analytics**: Machine learning models for investment and production forecasting
+- **Customer Insights**: Behavioral analysis and segmentation
+- **Market Analysis**: Agricultural market trend analysis and reporting
+- **Compliance Reporting**: Automated regulatory and audit report generation
+
+### `/agents/compliance` - Regulatory Management
+**Technology**: Node.js with TypeScript  
+**Purpose**: Automated compliance monitoring and audit management
+
+#### Key Features
+- **Regulatory Monitoring**: Real-time compliance checking for Romanian and Iraqi regulations
+- **Audit Trail**: Comprehensive transaction and operation logging
+- **Risk Management**: Automated risk assessment and mitigation
+- **Document Management**: Automated compliance document generation and filing
+- **Alert System**: Proactive compliance violation detection and notification
+- **Reporting Engine**: Automated regulatory report generation and submission
 
 ## Getting Started
 
 ### Prerequisites
 - Node.js 18+ 
-- pnpm (recommended package manager)
-- Git
-- Expo CLI (for mobile development)
+- Redis (for caching and queues)
+- PostgreSQL (for persistent storage)
+- Docker (for containerization)
+- PM2 (for process management)
 
-### Monorepo Setup
+### Agent System Setup
 
 1. **Clone the repository**
    ```bash
@@ -85,208 +111,221 @@ The platform is organized as a monorepo with four main applications, each servin
    pnpm install
    ```
 
-3. **Start all applications**
+3. **Start agent system**
    ```bash
-   # Start all apps simultaneously
-   pnpm dev
+   # Start all agents simultaneously
+   pnpm agent:dev
 
-   # Or start individual applications
-   pnpm dev:crm        # CRM system
-   pnpm dev:marketing  # Customer website
-   pnpm dev:expo       # Mobile app
-   pnpm dev:docs       # Documentation site
+   # Or start individual agent modules
+   pnpm agent:investment     # Investment processing
+   pnpm agent:revenue        # Revenue distribution
+   pnpm agent:farm-sync      # Farm synchronization
+   pnpm agent:notification   # Notification system
+   pnpm agent:analytics      # Analytics processing
+   pnpm agent:compliance     # Compliance monitoring
    ```
 
-4. **Access applications**
-   - CRM: [http://localhost:3001](http://localhost:3001)
-   - Marketing: [http://localhost:3000](http://localhost:3000)
-   - Docs: [http://localhost:3002](http://localhost:3002)
-   - Expo: Mobile simulator or Expo Go app
+4. **Monitor agent processes**
+   - Dashboard: [http://localhost:4000](http://localhost:4000)
+   - Health Check: [http://localhost:4001/health](http://localhost:4001/health)
+   - Metrics: [http://localhost:4002/metrics](http://localhost:4002/metrics)
+   - Logs: PM2 monitoring interface
 
 ### Environment Setup
-Each app has its own environment configuration:
+Agent system requires comprehensive environment configuration:
 
 ```bash
-# development
-### ! Global ! ###############################################
-DOTENV_KEY=dotenv
-NEXT_PUBLIC_IS_PRODUCTION=boolean
-ENABLE_EXPERIMENTAL_COREPACK=number
+# Agent System Configuration
+### ! Core System ! ##########################################
+NODE_ENV=development
+AGENT_PORT=4000
+AGENT_CLUSTER_SIZE=4
+LOG_LEVEL=info
 
-# ? Supabase
-NEXT_PUBLIC_SUPABASE_URL=url
-SUPABASE_ANON_KEY=secret_key
-SUPABASE_SERVICE_KEY=secret_key
+# ? Redis Configuration
+REDIS_URL=redis://localhost:6379
+REDIS_PASSWORD=secret_password
 
-# ? Database 
-DATABASE_URL=secret_key
-DIRECT_DATABASE_URL=secret_key
+# ? Queue Configuration
+BULL_REDIS_URL=redis://localhost:6379/1
+QUEUE_CONCURRENCY=10
 
-# ? Telegram 
+# ? Database Configuration
+DATABASE_URL=postgresql://user:pass@localhost:5432/agents
+DATABASE_POOL_SIZE=20
+
+### ! Investment Agent ! ###################################
+INVESTMENT_PROCESSING_INTERVAL=30000
+MAX_INVESTMENT_AMOUNT=10000
+MIN_INVESTMENT_AMOUNT=50
+PORTFOLIO_REBALANCE_CRON=0 2 * * *
+
+### ! Revenue Agent ! #####################################
+REVENUE_CALCULATION_CRON=0 6 * * *
+PAYOUT_PROCESSING_CRON=0 8 * * *
+REVENUE_DISTRIBUTION_FEE=0.05
+
+### ! Farm Sync Agent ! ##################################
+ROMANIA_FARM_API_URL=https://ro-farm.newyolk.io/api
+IRAQ_FARM_API_URL=https://iq-farm.newyolk.io/api
+FARM_SYNC_INTERVAL=60000
+FARM_API_KEY=secret_key
+
+### ! Notification Agent ! ###############################
+NOTIFICATION_RATE_LIMIT=1000
+EMAIL_QUEUE_CONCURRENCY=50
+PUSH_NOTIFICATION_BATCH_SIZE=100
+
+# ? Telegram Configuration
 TELEGRAM_BOT_TOKEN=secret_token
-TELEGRAM_DEPOSIT_CHAT_ID=secret_id
-TELEGRAM_WITHDRAW_CHAT_ID=secret_number
-TELEGRAM_LISTING_CHAT_ID=-secret_number
-TELEGRAM_NETOPIA_CHAT_ID=-secret_number
+TELEGRAM_WEBHOOK_URL=https://agent.newyolk.io/webhook/telegram
 
-# ? Google OAuth
-AUTH_GOOGLE_ID=secret_id
-AUTH_GOOGLE_SECRET=secret
+# ? Email Configuration (SendGrid)
+SENDGRID_API_KEY=secret_key
+SENDGRID_FROM_EMAIL=noreply@newyolk.io
 
-# ? Google SMTP
-EMAIL_SERVER=secret
-EMAIL_FROM=contact@newyolk.io
-EMAIL_PASSWORD=secret_password
+# ? SMS Configuration (Twilio)
+TWILIO_ACCOUNT_SID=secret_sid
+TWILIO_AUTH_TOKEN=secret_token
+TWILIO_PHONE_NUMBER=+1234567890
 
-# ? NextAuth
-AUTH_SECRET=secret
+### ! Analytics Agent ! ##################################
+ANALYTICS_BATCH_SIZE=1000
+ANALYTICS_PROCESSING_CRON=*/15 * * * *
+ML_MODEL_UPDATE_CRON=0 3 * * 0
 
-# ? PostHog
-POSTHOG_KEY=secret_key
-POSTHOG_HOST=secret_url
+# ? PostHog Analytics
+POSTHOG_API_KEY=secret_key
+POSTHOG_HOST=https://app.posthog.com
 
-### ! Web ! ###############################################
-# ! PUBLIC ENV VARIABLES
-# ? Google Tag Manager
-NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID_WEB=secret
+### ! Compliance Agent ! #################################
+COMPLIANCE_CHECK_CRON=0 1 * * *
+AUDIT_LOG_RETENTION_DAYS=2555
+REGULATORY_ALERT_THRESHOLD=0.95
 
-# ? Sentry
-NEXT_PUBLIC_SENTRY_DSN=secret_url
-SENTRY_AUTH_TOKEN=secret_token
-
-# ? NextAuth
-# When deploying your site set the NEXT_PUBLIC_AUTH_URL environment variable to the canonical URL of the website.
-NEXT_PUBLIC_AUTH_URL_WEB=http://localhost:3000
-
-# ? PostHog
-NEXT_PUBLIC_POSTHOG_KEY=secret_key
-NEXT_PUBLIC_POSTHOG_HOST=secret_url
-
-# ? Mapbox 
-NEXT_PUBLIC_MAPBOX_TOKEN=secret_token
-
-### ! CRM ! ###############################################
-# ! PUBLIC ENV VARIABLES
-# ? NextAuth
-NEXT_PUBLIC_AUTH_URL_CRM=http://localhost:3001
-NEXT_PUBLIC_AUTH_URL_MARKETING=http://localhost:3002
-
-
-# ? Meta
-META_APP_ID=secret_id
-META_APP_SECRET=secret
-META_APP_CLIENT_TOKEN=secret_token
-META_APP_TOKEN=secret_token
-META_SYSTEM_USER_ACCESS_TOKEN=secret_token
-
-# ? Tabadul
-TABADUL_REST_API_URL=secret_url
-TABADUL_API_USERNAME=secret_name
-TABADUL_API_PASSWORD=secret_password
+# ? External Compliance APIs
+ROMANIA_REGULATORY_API=https://anaf.ro/api
+IRAQ_REGULATORY_API=https://tax.gov.iq/api
+COMPLIANCE_API_KEYS=secret_keys
 ```
 
 ## Technology Stack
 
-### Shared Technologies
-- **Package Manager**: pnpm with workspace support
-- **TypeScript**: Strict type checking across all apps
-- **Tailwind CSS**: Consistent styling system
-- **UI Components**: shadcn/ui component library
-- **Authentication**: JWT/OAuth implementation
-- **Database**: Shared database layer
-- **API**: GraphQL/REST API endpoints
+### Core Technologies
+- **Runtime**: Node.js 18+ with TypeScript
+- **Process Manager**: PM2 for clustering and monitoring
+- **Message Queue**: Bull/BullMQ with Redis backend
+- **Database**: PostgreSQL with Prisma ORM
+- **Caching**: Redis for high-performance caching
+- **Monitoring**: Prometheus + Grafana stack
 
-### App-Specific Technologies
-- **CRM & Marketing**: Next.js 14, React Server Components
-- **Expo**: React Native, Expo SDK, EAS Build
-- **Docs**: Next.js with MDX, Nextra or similar
-- **Mobile**: Native modules for camera, payments, biometrics
+### Agent-Specific Technologies
+- **Investment**: Stripe/PayPal SDKs, financial calculation libraries
+- **Revenue**: Decimal.js for precise financial calculations, PDF generation
+- **Farm Sync**: WebSocket connections, IoT device integrations
+- **Notification**: Firebase Cloud Messaging, Telegram Bot API, SendGrid
+- **Analytics**: TensorFlow.js, Apache Spark, ClickHouse
+- **Compliance**: PDF parsing libraries, document generation tools
 
-## Business Model
+## Business Process Automation
 
-NewYolk operates on a transparent agricultural investment model:
+The Agent System automates critical business processes across the agricultural investment lifecycle:
 
-1. **Customer Investment**: Purchase digital hens through the platform
-2. **Physical Operations**: Real farms in Romania and Iraq manage livestock
-3. **Revenue Generation**: Yolk sales generate returns for investors
-4. **Profit Distribution**: Regular payouts based on performance metrics
-5. **Reinvestment Options**: Scale investments through platform tools
+1. **Investment Processing**: Automated purchase validation, payment processing, and hen allocation
+2. **Farm Operations**: Real-time monitoring of production metrics and environmental conditions  
+3. **Revenue Distribution**: Automated calculation and distribution of profits from yolk sales
+4. **Customer Engagement**: Intelligent notification delivery and lifecycle management
+5. **Compliance Management**: Continuous regulatory monitoring and automated reporting
 
-## Market Focus
+## Operational Coverage
 
-- **Primary Markets**: Romania and Iraq
-- **Target Audience**: Digital-savvy investors seeking alternative assets
-- **Scalability**: Infrastructure designed for expansion to additional markets
+- **Primary Markets**: Romania and Iraq with localized compliance
+- **Processing Capacity**: 10,000+ transactions per minute
+- **Scalability**: Horizontal scaling with Kubernetes orchestration
 
 ## Key Benefits
 
-- **Transparency**: Real-time tracking of investments and returns
-- **Accessibility**: Low barrier to entry for agricultural investment
-- **Technology-Driven**: Modern platform with mobile-first approach
-- **Physical Backing**: Real agricultural operations provide asset security
-- **Scalable Returns**: Growth potential through reinvestment options
+- **Automation**: 95% reduction in manual processing overhead
+- **Reliability**: 99.9% uptime with redundant failover systems
+- **Scalability**: Auto-scaling based on workload demand
+- **Intelligence**: Machine learning-driven optimization and insights
+- **Compliance**: Automated regulatory adherence across jurisdictions
 
 ## Development
 
-### Monorepo Structure
+### Agent System Structure
 ```
 newyolk/
 ├── apps/
-│   ├── crm/           # Internal CRM system
-│   │   ├── src/
-│   │   ├── components/
-│   │   └── package.json
-│   ├── marketing/     # Customer website
-│   │   ├── src/
-│   │   ├── components/
-│   │   └── package.json
-│   ├── expo/          # Mobile application
-│   │   ├── src/
-│   │   ├── app.json
-│   │   └── package.json
-│   └── docs/          # Documentation site
-│       ├── pages/
-│       ├── components/
+│   └── agent/         # Agent system application
+│       ├── src/
+│       │   ├── core/
+│       │   │   ├── scheduler/      # Cron job management
+│       │   │   ├── queue/          # Message queue handlers
+│       │   │   ├── events/         # Event system
+│       │   │   └── monitoring/     # Health checks
+│       │   ├── agents/
+│       │   │   ├── investment/     # Investment processing
+│       │   │   ├── revenue/        # Revenue distribution
+│       │   │   ├── farm-sync/      # Farm data sync
+│       │   │   ├── notification/   # Notifications
+│       │   │   ├── analytics/      # Business intelligence
+│       │   │   └── compliance/     # Regulatory compliance
+│       │   ├── integrations/
+│       │   │   ├── telegram/       # Telegram bot
+│       │   │   ├── email/          # Email service
+│       │   │   ├── sms/            # SMS gateway
+│       │   │   ├── farms/          # Farm API clients
+│       │   │   └── payments/       # Payment processors
+│       │   └── utils/
+│       │       ├── logger/         # Logging utilities
+│       │       ├── validation/     # Data validation
+│       │       └── encryption/     # Security utilities
+│       ├── config/
+│       ├── tests/
 │       └── package.json
 ├── packages/
-│   ├── ui/            # Shared UI components
-│   ├── config/        # Shared configurations
-│   ├── types/         # TypeScript type definitions
-│   └── utils/         # Shared utilities
-├── package.json       # Root package.json
-└── pnpm-workspace.yaml
+│   ├── agent-types/   # Agent-specific TypeScript definitions
+│   ├── agent-utils/   # Shared agent utilities
+│   └── agent-config/  # Agent configuration management
+└── docker/
+    ├── agent.dockerfile
+    └── docker-compose.agent.yml
 ```
 
-### Workspace Commands
+### Agent Commands
 ```bash
-# Install dependencies for all workspaces
+# Install dependencies for agent system
 pnpm install
 
-# Run command in specific workspace
-pnpm --filter crm dev
-pnpm --filter marketing build
-pnpm --filter expo start
+# Run specific agent module
+pnpm --filter agent dev:investment
+pnpm --filter agent dev:revenue
+pnpm --filter agent dev:farm-sync
 
-# Run command in all workspaces
-pnpm -r build
-pnpm -r test
+# Run all agents in cluster mode
+pnpm --filter agent cluster:start
+pnpm --filter agent cluster:stop
 
-# Add dependency to specific workspace
-pnpm --filter crm add lodash
-pnpm --filter expo add react-native-camera
+# Monitor agent processes
+pnpm --filter agent monitor
+pnpm --filter agent logs
+
+# Add agent-specific dependency
+pnpm --filter agent add bull
+pnpm --filter agent add @types/node
 ```
 
-### Shared Packages
-- **`packages/ui`**: Reusable UI components across all apps
-- **`packages/config`**: Shared configuration files (ESLint, Tailwind, etc.)
-- **`packages/types`**: TypeScript definitions and interfaces
-- **`packages/utils`**: Common utility functions and helpers
+### Shared Agent Packages
+- **`packages/agent-types`**: TypeScript interfaces for agent communication
+- **`packages/agent-utils`**: Common utilities for logging, validation, encryption
+- **`packages/agent-config`**: Configuration management and environment handling
 
 ### Contributing
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+2. Create an agent feature branch
+3. Implement agent functionality with tests
+4. Submit a pull request with documentation
 
 ## License
 
@@ -294,11 +333,11 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Support
 
-For questions, issues, or contributions:
+For agent system questions, issues, or contributions:
 - Create an issue on GitHub
 - Contact the development team
-- Check the documentation wiki
+- Check the agent documentation wiki
 
 ---
 
-*NewYolk - Bridging Traditional Agriculture with Digital Innovation*
+*NewYolk Agent System - Intelligent Automation for Agricultural Investment*

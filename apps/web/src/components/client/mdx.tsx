@@ -10,7 +10,7 @@ import {
   AccordionContent,
 } from '@/components/ui/accordion'
 
-import { CodeBlockWrapper } from '@/components/agent/mdx-components/code-block-wrapper'
+import { CodeBlockWrapper } from '@/components/client/mdx-components/code-block-wrapper'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Callout } from '@/components/callout'
 import { Link } from '@/navigation'
