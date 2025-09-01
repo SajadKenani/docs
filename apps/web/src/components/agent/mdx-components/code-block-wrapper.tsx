@@ -25,7 +25,7 @@ export function CodeBlockWrapper({
 
   return (
     <Collapsible open={isOpened} onOpenChange={setIsOpened}>
-      <div className={cn('relative overflow-hidden', className)} {...props}>
+      <div className={cn('relative overflow-hidden ', className)} {...props}>
         <CollapsibleContent
           forceMount
           className={cn('overflow-hidden', !isOpened && 'max-h-32')}

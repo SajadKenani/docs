@@ -53,7 +53,7 @@ export function DashboardTableOfContents({
   }
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 ">
       <p className="font-medium">{messages.onThisPage}</p>
 
       <Tree tree={toc} activeItem={activeHeading as string} />
